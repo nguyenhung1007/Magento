@@ -7,4 +7,8 @@ class Helloworld extends \Magento\Framework\View\Element\Template
     {
         return 'Xin Chào Nguyễn Hùng!';
     }
+    public function getHellophp()
+    {
+        return 'Admin Xin Chào Nguyễn Hùng!';
+    }
 }
