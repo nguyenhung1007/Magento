@@ -21,24 +21,60 @@ class InstallSchema implements InstallSchemaInterface
     public function install(SchemaSetupInterface $setup, ModuleContextInterface $context)
     {
         /**
-         * Create table 'greeting_message'
+         * Create table 'hungnv_table'
          */
         $table = $setup->getConnection()
-            ->newTable($setup->getTable('Hungnv_Hello'))
+            ->newTable($setup->getTable('hungnv_table'))
             ->addColumn(
-                'greeting_id',
+                'id',
                 \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
                 null,
                 ['identity' => true, 'unsigned' => true, 'nullable' => false, 'primary' => true],
-                'Greeting ID'
+                'ID'
             )
             ->addColumn(
-                'message',
+                'title',
                 \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
                 255,
                 ['nullable' => false, 'default' => ''],
-                'Message'
-            )->setComment("Greeting Message table");
+                'Title'
+            )
+            ->addColumn(
+                'description',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                255,
+                ['nullable' => false, 'default' => ''],
+                'Description'
+            )
+            ->addColumn(
+                'image',
+                \Magento\Framework\DB\Ddl\Table::TYPE_TEXT,
+                255,
+                ['nullable' => false, 'default' => ''],
+                'Image'
+            )
+            ->addColumn(
+                'status',
+                \Magento\Framework\DB\Ddl\Table::TYPE_INTEGER,
+                255,
+                ['nullable' => false, 'default' => 0],
+                'Status'
+            )
+            ->addColumn(
+                'create_at',
+                \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
+                null,
+                ['nullable' => false],
+                'Create At'
+            )
+            ->addColumn(
+                'update_at',
+                \Magento\Framework\DB\Ddl\Table::TYPE_DATETIME,
+                null,
+                ['nullable' => false],
+                'Update At'
+            )
+            ->setComment("Hungnv Module Table");
         $setup->getConnection()->createTable($table);
     }
 }

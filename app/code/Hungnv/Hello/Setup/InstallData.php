@@ -28,12 +28,14 @@ class InstallData implements InstallDataInterface
          * Install messages
          */
         $data = [
-            ['message' => 'Happy New Year'],
-            ['message' => 'Merry Christmas']
+            ['title' => 'Happy New Year'],
+            ['description' => 'Happy New Year'],
+            ['image' => 'Happy New Year'],
+            ['status' => 1],
         ];
         foreach ($data as $bind) {
             $setup->getConnection()
-                ->insertForce($setup->getTable('Hungnv_Hello'), $bind);
+                ->insertForce($setup->getTable('hungnv_table'), $bind);
         }
     }
 }
